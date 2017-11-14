@@ -1,20 +1,20 @@
 package com.katatennis.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import com.katatennis.Bean.Player;
 import com.katatennis.Class.Game;
 
-class GameUnitTest {
+public class GameUnitTest {
 
 	private Player player1 = new Player("player1");
 	private Player player2 = new Player("player2");
 	private Game tennisGame = new Game(player1,player2);
 
 	@Test
-	void testGameScoreCorrectFromat() {
+	public void testGameScoreCorrectFromat() {
 		
 		String tennisScore = tennisGame.tennisScore(3);
 		assertEquals("40", tennisScore);
@@ -30,7 +30,7 @@ class GameUnitTest {
 	}
 	
 	@Test
-	void testHasGameWinner() {
+	public void testHasGameWinner() {
 		createGameScore(4,2);
 		assertEquals(true, tennisGame.hasWinner());
 		
@@ -39,7 +39,7 @@ class GameUnitTest {
 	}
 	
 	@Test
-	void testPlayerWithHighestGameScore() {
+	public void testPlayerWithHighestGameScore() {
 		createGameScore(6,7);
 		assertEquals(player2, tennisGame.playerWithHighestScore());
 		
@@ -48,67 +48,67 @@ class GameUnitTest {
 	}
 	
 	@Test
-	void testPlayerOneWinsFirstPoint() {
+	public void testPlayerOneWinsFirstPoint() {
 		createGameScore(1, 0);
 		assertEquals("Game score : 15/0", tennisGame.getScore());
 	}
 	
 	@Test
-	void testPlayerTwoWinsTwoFirstPoints() {
+	public void testPlayerTwoWinsTwoFirstPoints() {
 		createGameScore(0, 2);
 		assertEquals("Game score : 0/30", tennisGame.getScore());
 	}
 	
 	@Test
-	void testPlayerOneWinsThreeFirstPoints() {
+	public void testPlayerOneWinsThreeFirstPoints() {
 		createGameScore(3, 0);
 		assertEquals("Game score : 40/0", tennisGame.getScore());
 	}
 	
 	@Test
-	void testPlayersWinTwoPointsEach() {
+	public void testPlayersWinTwoPointsEach() {
 		createGameScore(2, 2);
 		assertEquals("Game score : 30/30", tennisGame.getScore());
 	}
 	
 	@Test
-	void testPlayersAreDeuce() {
+	public void testPlayersAreDeuce() {
 		createGameScore(4, 4);
 		assertEquals("Game score : DEUCE", tennisGame.getScore());
 	}
 	
 	@Test
-	void testPlayerOneWinsGame() {
+	public void testPlayerOneWinsGame() {
 		createGameScore(4, 0);
 		assertEquals("Game score : player1 win the game", tennisGame.getScore());
 	}
 	
 	@Test
-	void testPlayerTwoWinsGameAfterAdvantage() {
+	public void testPlayerTwoWinsGameAfterAdvantage() {
 		createGameScore(6, 8);
 		assertEquals("Game score : player2 win the game", tennisGame.getScore());
 	}
 	
 	@Test
-	void testPlayerOneHasAdvantage() {
+	public void testPlayerOneHasAdvantage() {
 		createGameScore(5, 4);
 		assertEquals("Game score : ADV player1", tennisGame.getScore());
 	}
 	
 	@Test
-	void testPlayerTwoHasAdvantage() {
+	public void testPlayerTwoHasAdvantage() {
 		createGameScore(6, 7);
 		assertEquals("Game score : ADV player2", tennisGame.getScore());
 	}
 	
 	@Test
-	void testGameIsTieBreak() {
+	public void testGameIsTieBreak() {
 		createTieBreakScore(0, 0);		
 		assertEquals(true, tennisGame.isTieBreak());
 	}
 	
 	@Test
-	void testPlayersWonFourPointsEachInTieBreak() {
+	public void testPlayersWonFourPointsEachInTieBreak() {
 		createTieBreakScore(4, 4);		
 		assertEquals("Tie Break score : 4/4", tennisGame.getScore());	
 	}
@@ -128,4 +128,5 @@ class GameUnitTest {
 		for (int j = 0; j<pointsWonByPlayerTwo; j++)
 			player2.winsPoint();
 	}
+
 }

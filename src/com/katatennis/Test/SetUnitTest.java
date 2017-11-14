@@ -1,19 +1,20 @@
 package com.katatennis.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import com.katatennis.Bean.Player;
 import com.katatennis.Class.Set;
 
-class SetUnitTest {
+public class SetUnitTest {
+
 	private Player player1 = new Player("player1");
 	private Player player2 = new Player("player2");
 	private Set tennisSet = new Set(player1, player2);
 	
 	@Test
-	void testHasSetWinner() {
+	public void testHasSetWinner() {
 		createSetScore(6,4);
 		assertEquals(true, tennisSet.hasWinner());
 		
@@ -22,7 +23,7 @@ class SetUnitTest {
 	}
 	
 	@Test
-	void testPlayerWithHighestSetScore() {
+	public void testPlayerWithHighestSetScore() {
 		createSetScore(5,6);
 		assertEquals(player2, tennisSet.playerWithHighestScore());
 		
@@ -31,37 +32,37 @@ class SetUnitTest {
 	}
 	
 	@Test
-	void testPlayerOneWinTheFirstGame() {
+	public void testPlayerOneWinTheFirstGame() {
 		createSetScore(1, 0);
 		assertEquals("Set score : 1/0", tennisSet.getScore());
 	}
 	
 	@Test
-	void testPlayerTwoWinTheFirstThreeGames() {
+	public void testPlayerTwoWinTheFirstThreeGames() {
 		createSetScore(0, 3);
 		assertEquals("Set score : 0/3", tennisSet.getScore());
 	}
 	
 	@Test
-	void testPlayersWonFiveGamesEach() {
+	public void testPlayersWonFiveGamesEach() {
 		createSetScore(5, 5);
 		assertEquals("Set score : 5/5", tennisSet.getScore());
 	}
 	
 	@Test
-	void testPlayerOneWinsTheSet() {
+	public void testPlayerOneWinsTheSet() {
 		createSetScore(6, 3);
 		assertEquals("Set score : player1 win the set and the match", tennisSet.getScore());
 	}
 	
 	@Test
-	void testPlayerTwoWinsTheSet() {
+	public void testPlayerTwoWinsTheSet() {
 		createSetScore(5, 7);
 		assertEquals("Set score : player2 win the set and the match", tennisSet.getScore());
 	}
 	
 	@Test
-	void testPlayerTwoWinsTheSetAfterTieBreak() {
+	public void testPlayerTwoWinsTheSetAfterTieBreak() {
 		createSetScore(6, 7);
 		assertEquals("Set score : player2 win the set and the match", tennisSet.getScore());
 	}
@@ -70,4 +71,5 @@ class SetUnitTest {
 		player1.setSetScore(setsWonByPlayerOne);
 		player2.setSetScore(setsWonByPlayerTwo);
 	}
+
 }
