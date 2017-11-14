@@ -1,27 +1,27 @@
 package main;
 
-public class Set implements Score {
-	private Player player1;
-	private Player player2;
+public class Set implements IScore {
+	private IPlayer player1;
+	private IPlayer player2;
 	
-	public Set(Player player1, Player player2) {
+	public Set(IPlayer player1, IPlayer player2) {
 		this.player1 = player1;
 		this.player2 = player2;
 	}
 	
-	public Player getPlayer1() {
+	public IPlayer getPlayer1() {
 		return player1;
 	}
 
-	public void setPlayer1(Player player1) {
+	public void setPlayer1(IPlayer player1) {
 		this.player1 = player1;
 	}
 
-	public Player getPlayer2() {
+	public IPlayer getPlayer2() {
 		return player2;
 	}
 
-	public void setPlayer2(Player player2) {
+	public void setPlayer2(IPlayer player2) {
 		this.player2 = player2;
 	}
 
@@ -32,7 +32,7 @@ public class Set implements Score {
 		return false;
 	}
 	
-	public Player playerWithHighestScore() {
+	public IPlayer playerWithHighestScore() {
 		if(player1.getSetScore() > player2.getSetScore())
 			return player1;
 		return player2;

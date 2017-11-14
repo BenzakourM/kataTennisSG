@@ -5,13 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import main.Game;
-import main.Player;
+import main.IPlayer;
 import main.PlayerImpl;
 
 class GameUnitTest {
 
-	private Player player1 = new PlayerImpl("player1");
-	private Player player2 = new PlayerImpl("player2");
+	private IPlayer player1 = new PlayerImpl("player1");
+	private IPlayer player2 = new PlayerImpl("player2");
 	private Game tennisGame = new Game(player1,player2);
 
 	@Test

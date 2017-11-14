@@ -1,31 +1,31 @@
 package main;
 
-public class Match implements Score {
-	private Player player1;
-	private Player player2;
+public class Match implements IScore {
+	private IPlayer player1;
+	private IPlayer player2;
 	private Game game;
 	private Set set;
 	
-	public Match(Player player1, Player player2) {
+	public Match(IPlayer player1, IPlayer player2) {
 		this.player1 = player1;
 		this.player2 = player2;
 		game = new Game(player1, player2);
 		set = new Set(player1, player2);
 	}
 	
-	public Player getPlayer1() {
+	public IPlayer getPlayer1() {
 		return player1;
 	}
 
-	public void setPlayer1(Player player1) {
+	public void setPlayer1(IPlayer player1) {
 		this.player1 = player1;
 	}
 
-	public Player getPlayer2() {
+	public IPlayer getPlayer2() {
 		return player2;
 	}
 
-	public void setPlayer2(Player player2) {
+	public void setPlayer2(IPlayer player2) {
 		this.player2 = player2;
 	}
 

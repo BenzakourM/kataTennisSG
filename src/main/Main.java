@@ -1,10 +1,10 @@
 package main;
 
-public class test {
+public class Main {
 
 	public static void main(String[] args) {
-		Player player1 = new PlayerImpl("Rafael Nadal");
-		Player player2 = new PlayerImpl("Roger Feder");
+		IPlayer player1 = new PlayerImpl("Rafael Nadal");
+		IPlayer player2 = new PlayerImpl("Roger Feder");
 		Match game = new Match(player1, player2);
 		
 		//Player2 wins 5 games

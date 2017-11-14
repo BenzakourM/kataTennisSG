@@ -1,6 +1,6 @@
 package main;
 
-public class PlayerImpl implements Player{
+public class PlayerImpl implements IPlayer{
 	private int gameScore;
 	private int setScore;
 	private String name;

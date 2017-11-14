@@ -1,6 +1,6 @@
 package main;
 
-public interface Player {
+public interface IPlayer {
 
 	public int getSetScore();
 

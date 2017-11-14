@@ -1,5 +1,5 @@
 package main;
 
-public interface Score {
+public interface IScore {
 	public String getScore();
 }

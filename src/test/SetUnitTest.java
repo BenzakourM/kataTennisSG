@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.Player;
+import main.IPlayer;
 import main.PlayerImpl;
 import main.Set;
 
 class SetUnitTest {
-	private Player player1 = new PlayerImpl("player1");
-	private Player player2 = new PlayerImpl("player2");
+	private IPlayer player1 = new PlayerImpl("player1");
+	private IPlayer player2 = new PlayerImpl("player2");
 	private Set tennisSet = new Set(player1, player2);
 	
 	@Test
