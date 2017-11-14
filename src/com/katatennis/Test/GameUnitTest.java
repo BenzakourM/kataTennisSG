@@ -1,17 +1,16 @@
-package test;
+package com.katatennis.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.Game;
-import main.IPlayer;
-import main.PlayerImpl;
+import com.katatennis.Bean.Player;
+import com.katatennis.Class.Game;
 
 class GameUnitTest {
 
-	private IPlayer player1 = new PlayerImpl("player1");
-	private IPlayer player2 = new PlayerImpl("player2");
+	private Player player1 = new Player("player1");
+	private Player player2 = new Player("player2");
 	private Game tennisGame = new Game(player1,player2);
 
 	@Test
@@ -28,6 +27,24 @@ class GameUnitTest {
 		
 		tennisScore = tennisGame.tennisScore(0);
 		assertEquals("0", tennisScore);
+	}
+	
+	@Test
+	void testHasGameWinner() {
+		createGameScore(4,2);
+		assertEquals(true, tennisGame.hasWinner());
+		
+		createGameScore(4,4);
+		assertEquals(false, tennisGame.hasWinner());
+	}
+	
+	@Test
+	void testPlayerWithHighestGameScore() {
+		createGameScore(6,7);
+		assertEquals(player2, tennisGame.playerWithHighestScore());
+		
+		createGameScore(5, 4);
+		assertEquals(player1, tennisGame.playerWithHighestScore());
 	}
 	
 	@Test
@@ -97,11 +114,8 @@ class GameUnitTest {
 	}
 	
 	private void createGameScore(int pointsWonByPlayerOne, int pointsWonByPlayerTwo) {
-		for (int i = 0; i<pointsWonByPlayerOne; i++)
-			player1.winsPoint();
-		
-		for (int j = 0; j<pointsWonByPlayerTwo; j++)
-			player2.winsPoint();
+		player1.setGameScore(pointsWonByPlayerOne);
+		player2.setGameScore(pointsWonByPlayerTwo);
 	}
 	
 	private void createTieBreakScore(int pointsWonByPlayerOne, int pointsWonByPlayerTwo) {

@@ -1,27 +1,30 @@
-package main;
+package com.katatennis.Class;
+
+import com.katatennis.Bean.Player;
+import com.katatennis.Interface.IScore;
 
 public class Game implements IScore {
-	private IPlayer player1;
-	private IPlayer player2;
+	private Player player1;
+	private Player player2;
 	
-	public Game(IPlayer player1, IPlayer player2) {
+	public Game(Player player1, Player player2) {
 		this.player1 = player1;
 		this.player2 = player2;
 	}
 	
-	public IPlayer getPlayer1() {
+	public Player getPlayer1() {
 		return player1;
 	}
 
-	public void setPlayer1(IPlayer player1) {
+	public void setPlayer1(Player player1) {
 		this.player1 = player1;
 	}
 
-	public IPlayer getPlayer2() {
+	public Player getPlayer2() {
 		return player2;
 	}
 
-	public void setPlayer2(IPlayer player2) {
+	public void setPlayer2(Player player2) {
 		this.player2 = player2;
 	}
 
@@ -35,7 +38,6 @@ public class Game implements IScore {
 		}
 	}
 	
-	//implementer is tiebreak pour verifier si le jeur est noraml ou tie break puis lutiliser dans laffichage du score.
 	public boolean isTieBreak() {
 		if(player1.getSetScore() == 6 && player2.getSetScore() == player1.getSetScore())
 			return true;
@@ -56,6 +58,7 @@ public class Game implements IScore {
 		return false;
 	}
 	
+	@Override
 	public boolean hasWinner() {
 		if(isTieBreak()) {
 			if(player1.getGameScore() >= 7 && player1.getGameScore() >= player2.getGameScore() + 2 
@@ -74,7 +77,8 @@ public class Game implements IScore {
 		}
 	}
 	
-	public IPlayer playerWithHighestScore() {
+	@Override
+	public Player playerWithHighestScore() {
 		if(player1.getGameScore() > player2.getGameScore()) {
 			return player1;
 		}

@@ -1,17 +1,34 @@
-package test;
+package com.katatennis.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.IPlayer;
-import main.PlayerImpl;
-import main.Set;
+import com.katatennis.Bean.Player;
+import com.katatennis.Class.Set;
 
 class SetUnitTest {
-	private IPlayer player1 = new PlayerImpl("player1");
-	private IPlayer player2 = new PlayerImpl("player2");
+	private Player player1 = new Player("player1");
+	private Player player2 = new Player("player2");
 	private Set tennisSet = new Set(player1, player2);
+	
+	@Test
+	void testHasSetWinner() {
+		createSetScore(6,4);
+		assertEquals(true, tennisSet.hasWinner());
+		
+		createSetScore(5,5);
+		assertEquals(false, tennisSet.hasWinner());
+	}
+	
+	@Test
+	void testPlayerWithHighestSetScore() {
+		createSetScore(5,6);
+		assertEquals(player2, tennisSet.playerWithHighestScore());
+		
+		createSetScore(4,2);
+		assertEquals(player1, tennisSet.playerWithHighestScore());
+	}
 	
 	@Test
 	void testPlayerOneWinTheFirstGame() {

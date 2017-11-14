@@ -1,30 +1,34 @@
-package main;
+package com.katatennis.Class;
+
+import com.katatennis.Bean.Player;
+import com.katatennis.Interface.IScore;
 
 public class Set implements IScore {
-	private IPlayer player1;
-	private IPlayer player2;
+	private Player player1;
+	private Player player2;
 	
-	public Set(IPlayer player1, IPlayer player2) {
+	public Set(Player player1, Player player2) {
 		this.player1 = player1;
 		this.player2 = player2;
 	}
 	
-	public IPlayer getPlayer1() {
+	public Player getPlayer1() {
 		return player1;
 	}
 
-	public void setPlayer1(IPlayer player1) {
+	public void setPlayer1(Player player1) {
 		this.player1 = player1;
 	}
 
-	public IPlayer getPlayer2() {
+	public Player getPlayer2() {
 		return player2;
 	}
 
-	public void setPlayer2(IPlayer player2) {
+	public void setPlayer2(Player player2) {
 		this.player2 = player2;
 	}
 
+	@Override
 	public boolean hasWinner() {
 		if ((player1.getSetScore() == 6 && player2.getSetScore() <= 4) || (player2.getSetScore() == 6  && player1.getSetScore() <= 4)
 				|| player1.getSetScore() == 7 || player2.getSetScore() == 7)
@@ -32,7 +36,8 @@ public class Set implements IScore {
 		return false;
 	}
 	
-	public IPlayer playerWithHighestScore() {
+	@Override
+	public Player playerWithHighestScore() {
 		if(player1.getSetScore() > player2.getSetScore())
 			return player1;
 		return player2;
