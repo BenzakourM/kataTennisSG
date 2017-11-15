@@ -32,19 +32,13 @@ public class SetUnitTest {
 	}
 	
 	@Test
-	public void testPlayerOneWinTheFirstGame() {
+	public void testPlayersWinsGames() {
 		createSetScore(1, 0);
 		assertEquals("Set score : 1/0", tennisSet.getScore());
-	}
-	
-	@Test
-	public void testPlayerTwoWinTheFirstThreeGames() {
+		
 		createSetScore(0, 3);
 		assertEquals("Set score : 0/3", tennisSet.getScore());
-	}
-	
-	@Test
-	public void testPlayersWonFiveGamesEach() {
+		
 		createSetScore(5, 5);
 		assertEquals("Set score : 5/5", tennisSet.getScore());
 	}
@@ -67,9 +61,9 @@ public class SetUnitTest {
 		assertEquals("Set score : player2 win the set and the match", tennisSet.getScore());
 	}
 
-	private void createSetScore(int setsWonByPlayerOne, int setsWonByPlayerTwo) {
-		player1.setSetScore(setsWonByPlayerOne);
-		player2.setSetScore(setsWonByPlayerTwo);
+	private void createSetScore(int gamesWonByPlayerOne, int gamesWonByPlayerTwo) {
+		player1.setSetScore(gamesWonByPlayerOne);
+		player2.setSetScore(gamesWonByPlayerTwo);
 	}
 
 }
