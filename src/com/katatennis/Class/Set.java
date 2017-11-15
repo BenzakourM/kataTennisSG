@@ -1,15 +1,13 @@
 package com.katatennis.Class;
 
+import com.katatennis.Abstract.Score;
 import com.katatennis.Bean.Player;
-import com.katatennis.Interface.IScore;
 
-public class Set implements IScore {
-	private Player player1;
-	private Player player2;
+public class Set extends Score {
 	
 	public Set(Player player1, Player player2) {
-		this.player1 = player1;
-		this.player2 = player2;
+		super.player1 = player1;
+		super.player2 = player2;
 	}
 	
 	public Player getPlayer1() {
@@ -17,7 +15,7 @@ public class Set implements IScore {
 	}
 
 	public void setPlayer1(Player player1) {
-		this.player1 = player1;
+		super.player1 = player1;
 	}
 
 	public Player getPlayer2() {
@@ -25,7 +23,7 @@ public class Set implements IScore {
 	}
 
 	public void setPlayer2(Player player2) {
-		this.player2 = player2;
+		super.player2 = player2;
 	}
 
 	@Override
